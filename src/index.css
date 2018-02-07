@@ -1,0 +1,47 @@
+@import '~antd/dist/antd.css';
+body{
+	font:14px 'Century Gothic',Futura,sans-serif,'microsoft yahei';
+	margin:20px;
+}
+body,html,div,p,span,img,ul,li{
+	margin:0;
+	padding:0;
+}
+ol,ul{
+	padding-left:30px;
+}
+.clearfix:after{
+	content:'';
+	display:block;
+	clear:both;
+	visibility:hidden;
+	width:0;
+	height:0;
+}
+/*公用样式*/
+.coupon_icon{
+	position:fixed;
+	right:10px;
+	top:22px;
+	width:30px;
+	height:22px;
+	z-index:10;
+	overflow:visible;
+}
+.coupon_icon img{
+	width:30px;
+	height:22px;
+}
+.coupon_icon span{
+	position:absolute;
+	top:-7px;
+	right:-5px;
+	width:15px;
+	height:15px;
+	color:#fff;
+	background:#fb0f0f;
+	text-align:center;
+	line-height:15px;
+	border-radius:50%;
+	font-size:12px;
+}

@@ -1,0 +1,75 @@
+.banner_wrapper{
+	position:relative;
+}
+.banner_wrapper .btn{
+	position:absolute;
+	bottom:-14px;
+	left:50%;
+	transform:translateX(-50%);
+	width:274px;
+	height:52px;
+	border-radius:26px;
+	text-indent:60px;
+	color:#fff;
+	font-size:24px;
+	line-height:52px;
+	letter-spacing:1px;
+	background:#faa604 url('../images/hand.png') no-repeat 200px center;
+	background-size:32px 22px;
+	text-align:left;
+
+}
+.banner_img{
+	width:100%;
+}
+/*菜单 */
+.menu_wrapper{
+	width:100%;
+	height:100px;
+}
+.menu_wrapper .menu_item{
+	float:left;
+	width:25%;
+	height:100px;
+}
+.menu_wrapper .menu_item img{
+	display:block;
+	margin:30px auto 0;
+	width:36px;
+	height:36px;
+}
+.menu_wrapper .menu_item span{
+	display:block;
+	width:100%;
+	height:30px;
+	line-height:30px;
+	font-size:12px;
+	color:#333;
+	text-align:center;
+}
+/*店铺*/
+.shop_wrapper{}
+.shop_title{
+	position:relative;
+	margin-top:5px;
+	width:100%;
+	height:30px;
+	line-height:30px;
+	color:#000;
+	background:#fff;
+	text-indent:20px;
+}
+.shop_title:before{
+	position:absolute;
+	top:7px;
+	left:10px;
+	content:'';
+	width:4px;
+	height:16px;
+	background:#ed6c4b;
+	color:#ed6c4b;
+}
+.shops{}
+.shop_img{
+	width:100%;
+}
