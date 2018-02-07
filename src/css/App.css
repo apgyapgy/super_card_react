@@ -73,3 +73,33 @@
 .shop_img{
 	width:100%;
 }
+/*贴片*/
+.patch_wrapper{
+	position:fixed;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,.5);
+}
+.patch_1,.patch_2,.patch_3{
+	position:absolute;
+}
+.patch_1{
+	top:43px;
+	right:0;
+	width:205px;
+	height:88px;
+}
+.patch_2{
+	top:186px;
+	left:42px;
+	width:300px;
+}
+.patch_3{
+	bottom:10px;
+	left:50%;
+	transform:translateX(-50%);
+	width:337px;
+	height:296px;
+}
