@@ -1,7 +1,7 @@
 .re_header_wrappper{
   position:relative;
   width:100%;
-  height:40px;
+  height:.8rem;
 }
 .re_header{
   position:fixed;
@@ -9,9 +9,9 @@
   top:0;
   background:#ff6139;
   width:100%;
-  height:40px;
-  line-height:40px;
-  font-size:20px;
+  height:.8rem;
+  line-height:.80rem;
+  font-size:.4rem;
   color:#fff;
   z-index:10;
 }
@@ -21,21 +21,21 @@
 }
 .re_header_center{
   width:60%;
-  height:40px;
+  height:.8rem;
 }
 .re_header_left,.re_header_right{
   width:20%;
   height:100%;
 }
 .re_header_right{
-  padding-left:20px;
+  padding-left:.6rem;
   box-sizing:border-box;
 }
 .re_header_right span{
-  margin:17px 3px 0 0;
+  margin:.34rem .06rem 0 0;
   float:left;
-  width:6px;
-  height:6px;
+  width:.12rem;
+  height:.12rem;
   border-radius:50%;
   background:#fff;
 }

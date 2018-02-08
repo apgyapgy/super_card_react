@@ -21,27 +21,55 @@ ol,ul{
 /*公用样式*/
 .coupon_icon{
 	position:fixed;
-	right:10px;
-	top:60px;
-	width:30px;
-	height:22px;
+	right:.2rem;
+	top:1.2rem;
+	width:.6rem;
+	height:.44rem;
 	z-index:10;
 	overflow:visible;
 }
 .coupon_icon img{
-	width:30px;
-	height:22px;
+	width:.6rem;
+	height:.44rem;
 }
 .coupon_icon span{
 	position:absolute;
-	top:-7px;
-	right:-5px;
-	width:15px;
-	height:15px;
+	top:-.14rem;
+	right:-.1rem;
+	width:.3rem;
+	height:.3rem;
 	color:#fff;
 	background:#fb0f0f;
 	text-align:center;
-	line-height:15px;
+	line-height:.3rem;
 	border-radius:50%;
-	font-size:12px;
+	font-size:.24rem;
+}
+/*底部*/
+.footer_wrapper{
+	position:relative;
+	width:100%;
+	height:1.6rem;
+}
+.footer_wrapper .footer{
+	position:fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+	height:.96rem;
+	text-align:center;
+	background:#ff6139;
+	font-size:.56rem;
+	letter-spacing:1px;
+	line-height:.6rem;
+	color:#fff;
+	border-radius:0;
+	z-index:10;
+}
+.footer_wrapper img{
+	position:fixed;
+	left:0;
+	bottom:.96rem;
+	width:100%;
+	height:.64rem;
 }

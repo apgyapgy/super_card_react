@@ -1,0 +1,135 @@
+.reward_header{
+	position:relative;
+	width:100%;
+	height:2.8rem;
+	background:#ff6139;
+	border-radius:0 0 45% 45%;
+}
+.reward_btn{
+	position:absolute;
+	left:50%;
+	top:.4rem;
+	padding-top:.3rem;
+	transform:translateX(-50%);
+	width:1.44rem;
+	height:1.44rem;
+	background:#f6c860;
+	color:#fff;
+	font-size:.34rem;
+	line-height:.44rem;
+	border-radius:50%;
+	text-align:center;
+	box-sizing: border-box;
+	box-shadow: -4px -4px 4px #f29c56,4px 4px 4px #f29c56,
+	            4px -4px 4px #f29c56,-4px 4px 4px #f29c56;
+}
+.reward_info_wrapper{
+	width:100%;
+	height:.8rem;
+}
+.reward_info{
+	margin:0 auto;
+	position:relative;
+	top:-.8rem;
+	width:6.2rem;
+	height:1.1rem;
+	border-radius:.1rem;
+	border:1px solid #e3e3e3;
+	background:#fff;
+}
+.reward_info .bold,
+.reward_info .fine{
+	display:block;
+	text-indent:1.2rem;
+}
+.reward_info .bold{
+	margin-top:.15rem;
+	font-size:.28rem;
+	line-height:.38rem;
+	font-weight:bold;
+	color:#686669;
+}
+.reward_info .fine{
+	font-size:.24rem;
+	line-height:.34rem;
+	color:#aaaaa7;
+}
+.r_i_left,.r_i_right{
+	float:left;
+	width:50%;
+	height:100%;
+}
+.r_i_left{
+	background:url('../images/total.png') no-repeat .34rem .34rem;
+	background-size:.48rem .48rem;
+}
+.r_i_right{
+	position:relative;
+	background:url('../images/money.png') no-repeat .4rem .3rem;
+	background-size:.42rem .48rem;
+}
+.r_i_right:before{
+	position:absolute;
+	left:0;
+	top:.2rem;
+	content:'';
+	width:1px;
+	height:.6rem;
+	background:#e3e3e3;
+}
+.reward_help{
+	background:#fff;
+}
+.reward_help_title{
+	position:relative;
+	width:100%;
+	height:1rem;
+	line-height:1rem;
+	font-size:.32rem;
+	color:#ff6139;
+	font-weight:bold;
+	text-indent:.7rem;
+	border-bottom:1px solid #e3e3e5;
+	box-sizing:border-box;
+}
+.reward_help_title:before{
+	position:absolute;
+	top:.4rem;
+	left:.35rem;
+	content:'';
+	width:.1rem;
+	height:.32rem;
+	background:#ff6139;
+	border-radius:.16rem;
+}
+.help_item{
+	margin:.2rem auto 0;
+	width:6.8rem;
+	height:1.2rem;
+	border-radius:.1rem;
+	border:2px solid #e3e3e5;
+}
+.help_left{
+	width:1.2rem;
+	font-size:.66rem;
+	color:#e3e3e5;
+	text-align:center;
+	font-weight:bold;
+}
+.help_right{
+	height:5.6rem;
+	font-size:.32rem;
+	text-indent:.3rem;
+	border-left:1px solid #e3e3e5;
+	box-sizing: border-box;
+}
+.help_left,.help_right{
+	float:left;
+	height:1.2rem;
+	line-height:1.2rem;
+}
+.help_right span{
+	letter-spacing:1px;
+	font-weight:bold;
+	color:#ff6139;
+}

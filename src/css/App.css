@@ -3,19 +3,19 @@
 }
 .banner_wrapper .btn{
 	position:absolute;
-	bottom:-14px;
+	bottom:-.28rem;
 	left:50%;
 	transform:translateX(-50%);
-	width:274px;
-	height:52px;
-	border-radius:26px;
-	text-indent:60px;
+	width:5.48rem;
+	height:1.04rem;
+	border-radius:.52rem;
+	text-indent:1.2rem;
 	color:#fff;
-	font-size:24px;
-	line-height:52px;
+	font-size:.48rem;
+	line-height:1.04rem;
 	letter-spacing:1px;
-	background:#faa604 url('../images/hand.png') no-repeat 200px center;
-	background-size:32px 22px;
+	background:#faa604 url('../images/hand.png') no-repeat 4rem center;
+	background-size:.64rem .44rem;
 	text-align:left;
 
 }
@@ -25,25 +25,25 @@
 /*菜单 */
 .menu_wrapper{
 	width:100%;
-	height:100px;
+	height:2rem;
 }
 .menu_wrapper .menu_item{
 	float:left;
 	width:25%;
-	height:100px;
+	height:2rem;
 }
 .menu_wrapper .menu_item img{
 	display:block;
-	margin:30px auto 0;
-	width:36px;
-	height:36px;
+	margin:.6rem auto 0;
+	width:.72rem;
+	height:.72rem;
 }
 .menu_wrapper .menu_item span{
 	display:block;
 	width:100%;
-	height:30px;
-	line-height:30px;
-	font-size:12px;
+	height:.6rem;
+	line-height:.6rem;
+	font-size:.24rem;
 	color:#333;
 	text-align:center;
 }
@@ -51,21 +51,21 @@
 .shop_wrapper{}
 .shop_title{
 	position:relative;
-	margin-top:5px;
+	margin-top:.1rem;
 	width:100%;
-	height:30px;
-	line-height:30px;
+	height:.6rem;
+	line-height:.6rem;
 	color:#000;
 	background:#fff;
-	text-indent:20px;
+	text-indent:.4rem;
 }
 .shop_title:before{
 	position:absolute;
-	top:7px;
-	left:10px;
+	top:.14rem;
+	left:.2rem;
 	content:'';
-	width:4px;
-	height:16px;
+	width:.08rem;
+	height:.32rem;
 	background:#ed6c4b;
 	color:#ed6c4b;
 }
@@ -86,20 +86,20 @@
 	position:absolute;
 }
 .patch_1{
-	top:43px;
+	top:.86rem;
 	right:0;
-	width:205px;
-	height:88px;
+	width:4.1rem;
+	height:1.76rem;
 }
 .patch_2{
-	top:186px;
-	left:42px;
-	width:300px;
+	top:3.72rem;
+	left:.84rem;
+	width:6rem;
 }
 .patch_3{
-	bottom:10px;
+	bottom:.2rem;
 	left:50%;
 	transform:translateX(-50%);
-	width:337px;
-	height:296px;
+	width:6.74rem;
+	height:5.92rem;
 }

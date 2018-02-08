@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
+//import {Link} from 'react-router-dom';
 //返回顶部按钮
 // import { BackTop } from 'antd';
-// import {Carousel} from 'antd';
+import {Carousel} from 'antd';
 // 头部
 import Header from './Header.js';
 import {CouponIcon} from './Template.js';
@@ -11,9 +12,14 @@ class Banner extends Component{
 	render(){
 		return(
 			<div className="banner_wrapper">
-				<div className="banner">
-					<img className="banner_img" src={require('./images/banner_1.png')}/>
-				</div>
+				<Carousel className="banner" autoplay>
+					<div>
+						<img className="banner_img" alt="" src={require('./images/banner_1.png')}/>
+					</div>
+					<div>
+						<img className="banner_img" alt="" src={require('./images/banner_2.png')}/>
+					</div>
+				</Carousel>
 				<div className="btn">超级惠员卡</div>
 			</div>
 		)
@@ -41,25 +47,22 @@ class Menu extends Component{
 			]
 		}
 	}
+	createElement(){
+		var _items = [];
+		this.state.menu.map((item,index) => {
+			_items.push(
+				<div key={index} className="menu_item">
+					<img alt="" src={require(''+item.imgUrl)}/>
+					<span>{item.text}</span>
+				</div>
+			);
+		});
+		return _items;
+	}
 	render(){
 		return(
 			<div className="menu_wrapper">
-				<div className="menu_item">
-					<img src={require('./images/menu_shop.png')}/>
-					<span>快乐柠檬</span>
-				</div>
-				<div className="menu_item">
-					<img src={require('./images/menu_reward.png')}/>
-					<span>天天奖励金</span>
-				</div>
-				<div className="menu_item">
-					<img src={require('./images/menu_gift.png')}/>
-					<span>邀请有礼</span>
-				</div>
-				<div className="menu_item">
-					<img src={require('./images/menu_concat.png')}/>
-					<span>在线客服</span>
-				</div>
+				{this.createElement()}
 			</div>
 		)
 	}
@@ -90,9 +93,9 @@ class Patch extends Component{
 	render(){
 		return(
 			<div className="patch_wrapper">
-				<img className="patch_1" src={require('./images/patch_1.png')}/>
-				<img className="patch_2" src={this.props.isVip==true?require('./images/patch_2_2.png'):require('./images/patch_2.png')}/>
-				<img className="patch_3" src={require('./images/patch_3.png')}/>
+				<img className="patch_1" alt="" src={require('./images/patch_1.png')}/>
+				<img className="patch_2" alt="" src={this.props.isVip===true?require('./images/patch_2_2.png'):require('./images/patch_2.png')}/>
+				<img className="patch_3" alt="" src={require('./images/patch_3.png')}/>
 			</div>
 		)
 	}
@@ -118,7 +121,7 @@ class App extends Component{
 				<Menu/>
 				<Shop/>
 				<CouponIcon nums={this.state.usefulCouponNums}/>
-				{this.state.shopPatchFlag==true?<Patch/>:''}
+				{this.state.shopPatchFlag===true?<Patch/>:''}
 			</div>
 		)
 	}
