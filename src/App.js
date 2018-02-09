@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 //返回顶部按钮
 // import { BackTop } from 'antd';
 import {Carousel} from 'antd';
@@ -33,16 +33,20 @@ class Menu extends Component{
 			menu:[
 				{
 					imgUrl:'./images/menu_shop.png',
-					text:'快乐柠檬'
+					text:'快乐柠檬',
+					nav:'/shop'
 				},{
 					imgUrl:'./images/menu_reward.png',
-					text:'天天奖励金'
+					text:'天天奖励金',
+					nav:'/reward'
 				},{
 					imgUrl:'./images/menu_gift.png',
-					text:'邀请有礼'
+					text:'邀请有礼',
+					nav:'/share'
 				},{
 					imgUrl:'./images/menu_concat.png',
-					text:'在线客服'
+					text:'在线客服',
+					nav:''
 				}
 			]
 		}
@@ -51,10 +55,12 @@ class Menu extends Component{
 		var _items = [];
 		this.state.menu.map((item,index) => {
 			_items.push(
-				<div key={index} className="menu_item">
-					<img alt="" src={require(''+item.imgUrl)}/>
-					<span>{item.text}</span>
-				</div>
+				<Link key={index} to={'' + item.nav}>
+					<div className="menu_item">
+						<img alt="" src={require(''+item.imgUrl)}/>
+						<span>{item.text}</span>
+					</div>
+				</Link>
 			);
 		});
 		return _items;
@@ -74,15 +80,15 @@ class Shop extends Component{
 			<div className="shop_wrapper">
 				<div className="shop_title">附近店铺</div>
 				<div className="shops clearfix">
-					<img className="shop_img" src={require('./images/shop.jpg')} alt="" />
-					<img className="shop_img" src={require('./images/shop.jpg')} alt="" />
-					<img className="shop_img" src={require('./images/shop.jpg')} alt="" />
-					<img className="shop_img" src={require('./images/shop.jpg')} alt="" />
-					<img className="shop_img" src={require('./images/shop.jpg')} alt="" />
-					<img className="shop_img" src={require('./images/shop.jpg')} alt="" />
-					<img className="shop_img" src={require('./images/shop.jpg')} alt="" />
-					<img className="shop_img" src={require('./images/shop.jpg')} alt="" />
-					<img className="shop_img" src={require('./images/shop.jpg')} alt="" />
+					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
+					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
+					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
+					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
+					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
+					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
+					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
+					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
+					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
 				</div>
 			</div>
 		)
@@ -116,7 +122,7 @@ class App extends Component{
 	render(){
 		return(
 			<div>
-				<Header title="超级惠员卡"/>
+				<Header title="超级惠员卡" back="false"/>
 				<Banner/>
 				<Menu/>
 				<Shop/>
