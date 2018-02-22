@@ -7,6 +7,8 @@ import {Carousel} from 'antd';
 import Header from './Header.js';
 import {CouponIcon} from './Template.js';
 import './css/App.css';
+
+import {get} from './get.js';
 //banner，轮播图
 class Banner extends Component{
 	render(){
@@ -112,12 +114,16 @@ class App extends Component{
 		this.state = {
 			usefulCouponNums:0,
 			isVip:false,
-			showPatchFlag:false
+			showPatchFlag:false,
+			loginId:'15316117950'
 		}
 		this.setState.bind(this);
 	}
 	showPatch(){
 		this.setState({showPatchFlag:true});
+	}
+	componentDidMount(){
+		get('app_vip/home?loginId='+this.state.loginId);
 	}
 	render(){
 		return(
