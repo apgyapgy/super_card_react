@@ -11,6 +11,9 @@ import axios from  'axios';
 //import {get} from './get.js';
 //banner，轮播图
 class Banner extends Component{
+	constructor(props){
+		super(props);
+	}
 	render(){
 		return(
 			<div className="banner_wrapper">
@@ -22,7 +25,7 @@ class Banner extends Component{
 						<img className="banner_img" alt="" src={require('./images/banner_2.png')}/>
 					</div>
 				</Carousel>
-				<div className="btn">超级惠员卡</div>
+				<div className="btn">{this.props.isVip === true?'惠员卡付款':'0.99元开通'}</div>
 			</div>
 		)
 	}
@@ -82,7 +85,22 @@ class Shop extends Component{
 	}
 	createElement(){
 		var _items = [];
-		this.props.shops.map((item,index) => {
+		for(var key in this.props.shops){
+			if(this.props.shops[key].vipLogo !== ''){
+				_items.push(
+					<Link key={key}
+						to={{
+							pathname:"/shop",
+						  	search:'?imgs='+ this.props.shops[key].vipLogoDtl+'*'+this.props.shops[key].vipLogo2Dtl+'*'+this.props.shops[key].vipLogo3Dtl+'&isVip='+this.props.isVip
+						}}
+					>
+						<img className="shop_img" src={'https://staticds.fuiou.com'+this.props.shops[key].vipLogo} alt="" />
+					</Link>
+				);
+			}
+		}
+
+		/*this.props.shops.map((item,index) => {
 			if(item.vipLogo !== ''){
 				_items.push(
 					<Link key={index} to="/shop">
@@ -90,7 +108,7 @@ class Shop extends Component{
 					</Link>
 				);
 			}
-		});
+		});*/
 		return _items;
 	}
 	render(){
@@ -143,7 +161,7 @@ class App extends Component{
 				_this.setState({
 					mchs:res.vipMchs,
 					userInfo:res.vipUsr,
-					isVip:res.ipVip === 1 ? true : false,
+					isVip:res.isVip === '1' ? true : false,
 					usefulCouponsNum:res.usefulCouponsNum
 				});
 			}
@@ -156,9 +174,9 @@ class App extends Component{
 		return(
 			<div>
 				<Header title="超级惠员卡" back="false"/>
-				<Banner/>
+				<Banner isVip={this.state.isVip}/>
 				<Menu/>
-				<Shop shops= {this.state.mchs} />
+				<Shop isVip={this.state.isVip} shops= {this.state.mchs} />
 				<CouponIcon nums={this.state.usefulCouponNums}/>
 				{this.state.shopPatchFlag===true?<Patch/>:''}
 			</div>
