@@ -7,8 +7,8 @@ import {Carousel} from 'antd';
 import Header from './Header.js';
 import {CouponIcon} from './Template.js';
 import './css/App.css';
-
-import {get} from './get.js';
+import axios from  'axios';
+//import {get} from './get.js';
 //banner，轮播图
 class Banner extends Component{
 	render(){
@@ -77,20 +77,28 @@ class Menu extends Component{
 }
 //店铺
 class Shop extends Component{
+	constructor(props){
+		super(props);
+	}
+	createElement(){
+		var _items = [];
+		this.props.shops.map((item,index) => {
+			if(item.vipLogo !== ''){
+				_items.push(
+					<Link key={index} to="/shop">
+						<img className="shop_img" src={'https://staticds.fuiou.com'+item.vipLogo} alt="" />
+					</Link>
+				);
+			}
+		});
+		return _items;
+	}
 	render(){
 		return(
 			<div className="shop_wrapper">
 				<div className="shop_title">附近店铺</div>
 				<div className="shops clearfix">
-					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
-					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
-					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
-					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
-					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
-					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
-					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
-					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
-					<Link to="/shop"><img className="shop_img" src={require('./images/shop.jpg')} alt="" /></Link>
+					{this.createElement()}
 				</div>
 			</div>
 		)
@@ -115,7 +123,10 @@ class App extends Component{
 			usefulCouponNums:0,
 			isVip:false,
 			showPatchFlag:false,
-			loginId:'15316117950'
+			loginId:'15316117950',
+			mchs:[],
+			userInfo:{},
+			usefulCouponsNum:0
 		}
 		this.setState.bind(this);
 	}
@@ -123,7 +134,23 @@ class App extends Component{
 		this.setState({showPatchFlag:true});
 	}
 	componentDidMount(){
-		get('app_vip/home?loginId='+this.state.loginId);
+		var _this = this;
+		axios.get('app_vip/home?loginId='+this.state.loginId)
+		.then((res) => {
+			console.log("res:",res);
+			if(res.data.code === 200){
+				res = res.data.data;
+				_this.setState({
+					mchs:res.vipMchs,
+					userInfo:res.vipUsr,
+					isVip:res.ipVip === 1 ? true : false,
+					usefulCouponsNum:res.usefulCouponsNum
+				});
+			}
+		}).catch((err) => {
+			console.error("err:",err);
+		});
+		//get('app_vip/home?loginId='+this.state.loginId);
 	}
 	render(){
 		return(
@@ -131,7 +158,7 @@ class App extends Component{
 				<Header title="超级惠员卡" back="false"/>
 				<Banner/>
 				<Menu/>
-				<Shop/>
+				<Shop shops= {this.state.mchs} />
 				<CouponIcon nums={this.state.usefulCouponNums}/>
 				{this.state.shopPatchFlag===true?<Patch/>:''}
 			</div>
