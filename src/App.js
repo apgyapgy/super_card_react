@@ -32,8 +32,8 @@ class Banner extends Component{
 }
 //菜单即四个icon
 class Menu extends Component{
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 		this.state = {
 			menu:[
 				{
@@ -60,7 +60,7 @@ class Menu extends Component{
 		var _items = [];
 		this.state.menu.map((item,index) => {
 			_items.push(
-				<Link key={index} to={'' + item.nav}>
+				<Link key={index} to={'' + item.nav+'?isVip='+this.props.isVip}>
 					<div className="menu_item">
 						<img alt="" src={require(''+item.imgUrl)}/>
 						<span>{item.text}</span>
@@ -175,7 +175,7 @@ class App extends Component{
 			<div>
 				<Header title="超级惠员卡" back="false"/>
 				<Banner isVip={this.state.isVip}/>
-				<Menu/>
+				<Menu isVip={this.state.isVip}/>
 				<Shop isVip={this.state.isVip} shops= {this.state.mchs} />
 				<CouponIcon nums={this.state.usefulCouponNums}/>
 				{this.state.shopPatchFlag===true?<Patch/>:''}
