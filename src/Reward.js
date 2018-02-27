@@ -5,6 +5,7 @@ import {Footer} from './Template.js';
 import './css/Reward.css';
 import {getParams} from './common.js';
 import axios from  'axios';
+import { Modal} from 'antd';
 class Reward extends Component{
 	constructor(){
 		super();
@@ -12,7 +13,9 @@ class Reward extends Component{
 			isVip:false,
 			isReceived:false,
 			loginId:'15316117950',
-			recordInfoData:{}
+			recordInfoData:{},
+			desc:'',
+			modalVisible:false
 		}
 	}
 	componentDidMount(){
@@ -54,6 +57,16 @@ class Reward extends Component{
 			console.error("err:",err);
 		});
 	}
+	handleCancel(){
+		this.setState({
+			modalVisible:false
+		});
+	}
+	handleOk(){
+		this.setState({
+			modalVisible:false
+		});
+	}
 	render(){
 		return(
 			<div className="reward_wrapper">
@@ -93,6 +106,14 @@ class Reward extends Component{
 					</div>
 				</div>
 				<Footer isVip={this.state.isVip}/>
+				<Modal
+		          title="提示"
+		          visible={this.state.modalVisible}
+		          onOk={this.handleOk.bind(this)}
+		          onCancel={this.handleCancel.bind(this)}
+	        	>
+	          		<p>{this.state.desc}</p>
+	        	</Modal>
 			</div>
 		)
 	}

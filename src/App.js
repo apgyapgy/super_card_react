@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link,Redirect} from 'react-router-dom';
 //返回顶部按钮
 // import { BackTop } from 'antd';
-import {Carousel} from 'antd';
+import {Carousel,Modal} from 'antd';
 // 头部
 import Header from './Header.js';
 import {CouponIcon} from './Template.js';
@@ -13,8 +13,25 @@ import axios from  'axios';
 class Banner extends Component{
 	constructor(props){
 		super(props);
+		this.state = {
+			redirect: false  
+		}
+	}
+	jump(){
+		if(this.props.isVip === true){
+			this.setState({
+				redirect:true
+			});
+			//this.props.history.pushState(null, '/pay')
+			//window.location.href='/pay';
+			//this.context.router.push('/pay');
+			//this.props.history.push('/pay');
+		}
 	}
 	render(){
+		if (this.state.redirect) {  
+		    return <Redirect push to="/pay" />; //or <Redirect push to="/sample?a=xxx&b=yyy" /> 传递更多参数  
+		}  
 		return(
 			<div className="banner_wrapper">
 				<Carousel className="banner" autoplay>
@@ -25,7 +42,7 @@ class Banner extends Component{
 						<img className="banner_img" alt="" src={require('./images/banner_2.png')}/>
 					</div>
 				</Carousel>
-				<div className="btn">{this.props.isVip === true?'惠员卡付款':'0.99元开通'}</div>
+				<div onClick={this.jump.bind(this)} className="btn">{this.props.isVip === true?'惠员卡付款':'0.99元开通'}</div>
 			</div>
 		)
 	}
@@ -58,7 +75,19 @@ class Menu extends Component{
 	}
 	createElement(){
 		var _items = [];
-		this.state.menu.map((item,index) => {
+		for(var key in this.state.menu){
+			var item = this.state.menu[key];
+			_items.push(
+				<Link key={key} to={'' + item.nav+'?isVip='+this.props.isVip}>
+					<div className="menu_item">
+						<img alt="" src={require(''+item.imgUrl)}/>
+						<span>{item.text}</span>
+					</div>
+				</Link>
+			)
+		}
+		return _items;
+		/*this.state.menu.map((item,index) => {
 			_items.push(
 				<Link key={index} to={'' + item.nav+'?isVip='+this.props.isVip}>
 					<div className="menu_item">
@@ -68,7 +97,7 @@ class Menu extends Component{
 				</Link>
 			);
 		});
-		return _items;
+		return _items;*/
 	}
 	render(){
 		return(
@@ -80,9 +109,6 @@ class Menu extends Component{
 }
 //店铺
 class Shop extends Component{
-	constructor(props){
-		super(props);
-	}
 	createElement(){
 		var _items = [];
 		for(var key in this.props.shops){
@@ -144,9 +170,10 @@ class App extends Component{
 			loginId:'15316117950',
 			mchs:[],
 			userInfo:{},
-			usefulCouponsNum:0
+			usefulCouponsNum:0,
+			desc:'',
+			modalVisible:false
 		}
-		this.setState.bind(this);
 	}
 	showPatch(){
 		this.setState({showPatchFlag:true});
@@ -164,11 +191,26 @@ class App extends Component{
 					isVip:res.isVip === '1' ? true : false,
 					usefulCouponsNum:res.usefulCouponsNum
 				});
+			}else{
+				_this.setState({
+					desc:res.data.desc,
+					modalVisible:true
+				});
 			}
 		}).catch((err) => {
 			console.error("err:",err);
 		});
 		//get('app_vip/home?loginId='+this.state.loginId);
+	}
+	handleCancel(){
+		this.setState({
+			modalVisible:false
+		});
+	}
+	handleOk(){
+		this.setState({
+			modalVisible:false
+		});
 	}
 	render(){
 		return(
@@ -179,6 +221,14 @@ class App extends Component{
 				<Shop isVip={this.state.isVip} shops= {this.state.mchs} />
 				<CouponIcon nums={this.state.usefulCouponNums}/>
 				{this.state.shopPatchFlag===true?<Patch/>:''}
+				<Modal
+		          title="提示"
+		          visible={this.state.modalVisible}
+		          onOk={this.handleOk.bind(this)}
+		          onCancel={this.handleCancel.bind(this)}
+	        	>
+	          		<p>{this.state.desc}</p>
+	        	</Modal>
 			</div>
 		)
 	}

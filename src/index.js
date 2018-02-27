@@ -5,6 +5,7 @@ import Shop from './Shop.js';
 import Reward from './Reward.js';
 import Share from './Share.js';
 import Pay from './Pay';
+import ConfirmOrder from './ConfirmOrder';
 import {BrowserRouter,Route} from 'react-router-dom';
 
 import './css/index.css';
@@ -19,6 +20,7 @@ ReactDOM.render(
 	      		<Route path='/reward' component={Reward}/>
 	      		<Route path='/share' component={Share}/>
 	      		<Route path='/pay' component={Pay}/>
+	      		<Route path="/confirmOrder" component={ConfirmOrder}/>
 	      	</div>
 	    </BrowserRouter>
 	),

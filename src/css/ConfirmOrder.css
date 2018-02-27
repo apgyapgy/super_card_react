@@ -1,0 +1,122 @@
+.amount_info{
+  padding-top:.26rem;
+  width:7.50rem;
+  height:100%;
+  box-sizing: border-box;
+}
+/**/
+.origin_total,.origin_amount,.coupon_discount,.pay_amount{
+  width:7.50rem;
+  height:.86rem;
+  font-size:.30rem;
+  line-height:.80rem;
+  color:#000;
+  text-indent:.30rem;
+  border-bottom:1px solid #e5e5e5;
+}
+.origin_total .right,.origin_amount .right,.coupon_discount .right,.pay_amount .right{
+  padding-right:.30rem;
+  float:right;
+  width:3rem;
+  text-align: right;
+}
+.origin_total{
+  border-top:1px solid #e5e5e5;
+}
+.coupon_discount .right.active{
+  color:#ff1313;
+}
+/*立即支付*/
+.pay{
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:0rem;
+  width:6.90rem;
+  height:.90rem;
+  font-size:.36rem;
+  line-height:.90rem;
+  text-align:center;
+  background:#f57665;
+  color:#fff;
+  border-radius:.10rem;
+}
+/*优惠券*/
+.order-coupon,.order-shop{
+  position:fixed;
+  left:0;
+  padding-top:.20rem;
+  padding-bottom:.20rem;
+  bottom:0;
+  width:7.50rem;
+  max-height:7.87rem;
+  background:rgba(0,0,0,0.7);
+}
+.order-coupon .coupon{
+  margin:.30rem auto 0;
+  width:6.90rem;
+  background:#fff;
+  border-radius:.10rem;
+}
+.coupon .coupon-left{
+  padding:.30rem 0  .30rem .20rem;
+  position:relative;
+  float:left;
+  width:2.80rem;
+  text-align:center;
+  box-sizing:border-box;
+}
+.coupon .coupon-left .select{
+  position:absolute;
+  top:.14rem;
+  left:.12rem;
+  width:.36rem;
+  height:.36rem;
+  border-radius:50%;
+  border:1px solid #26b1fe;
+}
+.coupon .coupon-left .select.active{
+  background:#26b1fe url('../images/success.png') no-repeat center;
+  background-size:.2rem .16rem;
+}
+.coupon .coupon-right{
+  padding:.30rem .20rem .30rem 0;
+  float:left;
+  width:3.60rem;
+  overflow-y:hidden;
+  box-sizing:border-box;
+}
+.coupon-price{
+  height:.58rem;
+  line-height:.58rem;
+  font-size:.40rem;
+  color:#fa3e2d;
+}
+.coupon-condition{
+  height:.40rem;
+  line-height:.40rem;
+  font-size:.24rem;
+  color:#666;
+}
+.coupon-vld{
+  margin-top:.10rem;
+  margin-left:.18rem;
+  height:.62rem;
+  line-height:.62rem;
+  color:#999;
+  font-size:.20rem;
+}
+.coupon-name{
+  margin-top:.07rem;
+  width:3.60rem;
+  line-height:.44rem;
+  font-size:.30rem;
+  color:#666;
+}
+.coupon-info{
+  padding-top:.07rem;
+  height:.40rem;
+  line-height:.40rem;
+  font-size:.24rem;
+  color:#666;
+}
